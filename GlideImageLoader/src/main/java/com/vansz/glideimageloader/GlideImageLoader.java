@@ -85,7 +85,12 @@ public class GlideImageLoader implements ImageLoader {
     }
 
     private String getFileName(String imageUrl) {
-        String[] nameArray = imageUrl.split("/");
-        return nameArray[nameArray.length - 1];
+//         String[] nameArray = imageUrl.split("/");
+//         return nameArray[nameArray.length - 1];
+        String[] nameArray = imageUrl.split("\\?")；
+        String fileName = nameArray[0];
+        fileName = fileName.replace('/','_');
+        fileName = fileName.replace(':','_');
+        return fileName
     }
 }
